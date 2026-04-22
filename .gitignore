@@ -1,0 +1,7 @@
+autoSvenv
+.env
+.DS_Store
+__pycache__
+api 
+app
+schema_models/request.py
