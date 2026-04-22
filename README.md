@@ -1,6 +1,7 @@
 # leadx — Social-to-Lead AI agent
 ![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)
 ![LangChain](https://img.shields.io/badge/LangChain-Enabled-green.svg)
+![LangGraph](https://img.shields.io/badge/LangGraph-Enabled-green.svg)
 ![Gemini](https://img.shields.io/badge/Gemini-Powered-orange.svg)
 ![SQLite](https://img.shields.io/badge/SQLite-Stateful-lightgrey.svg)
 
