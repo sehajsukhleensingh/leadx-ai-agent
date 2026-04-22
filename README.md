@@ -82,8 +82,8 @@ def mock_lead_capture(name, email, platform):
 
 **1. Clone the repository**
 ```bash
-git clone <your-repo-link>
-cd autostream-agent
+git clone https://github.com/sehajsukhleensingh/leadx-ai-agent.git
+cd leadx-ai-agent
 ```
 
 **2. Create a virtual environment**
