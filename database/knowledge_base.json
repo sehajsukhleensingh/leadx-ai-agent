@@ -1,0 +1,41 @@
+{
+  "product": "AutoStream",
+  "description": "AI-powered automated video editing platform for content creators",
+  "pricing": {
+    "plans": [
+      {
+        "name": "Basic",
+        "price": 29,
+        "billing": "month",
+        "features": [
+          "10 videos per month",
+          "720p resolution"
+        ]
+      },
+      {
+        "name": "Pro",
+        "price": 79,
+        "billing": "month",
+        "features": [
+          "Unlimited videos",
+          "4K resolution",
+          "AI captions"
+        ]
+      }
+    ]
+  },
+  "features": {
+    "common": [
+      "AI-powered video editing",
+      "Fast rendering",
+      "Cloud-based processing"
+    ]
+  },
+  "policies": {
+    "refund": "No refunds after 7 days",
+    "support": {
+      "basic": "Standard support",
+      "pro": "24/7 support available only on Pro plan"
+    }
+  }
+}
