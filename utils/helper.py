@@ -3,6 +3,7 @@ import sqlite3 # lib to connect to sqlite database
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEndpointEmbeddings
+from langsmith import traceable
 import json
 from dotenv import load_dotenv
 import os 
@@ -10,35 +11,8 @@ import os
 load_dotenv()
 
 class Utility:
-    """Shared utility functions for prompt fetching, vector store management, and data handling."""
-
-    @staticmethod
-    def generate_thread_id():
-        """Generate unique conversation thread ID for session tracking.
-        
-        Output: UUID string used to maintain conversation continuity across multiple messages.
-        """
-        return str(uuid.uuid4())
-
-    @staticmethod
-    def extract_threads():
-        """Retrieve all active conversation threads from checkpoint database.
-        
-        Output: List of thread IDs from past conversations. Returns empty list if database unavailable.
-        """
-        try:
-            conn = sqlite3.connect("backend/data/convos.db")
-            cursor = conn.cursor()
-
-            cursor.execute("SELECT DISTINCT thread_id from checkpoints")
-            data = cursor.fetchall()
-
-            conn.close()
-            return [t[0] for t in data]
-
-        except Exception:
-            return []
-
+    
+    @traceable(name="helper : fetch_prompts")
     @staticmethod
     def fetch_prompt(path: str):
         """Load prompt template from markdown file for LLM chain usage.
@@ -49,6 +23,7 @@ class Utility:
         with open(path, "r", encoding="utf-8") as file:
             return file.read()
 
+    @traceable(name="helper : flatten_json_kb")
     @staticmethod
     def flatten_autostream_json(data):
         """Transform knowledge base JSON into readable text for embedding.
@@ -68,6 +43,7 @@ class Utility:
 
         return "\n".join(text_parts)
 
+    @traceable(name="helper : vectordb_setup")
     @staticmethod
     def create_vector_store():
         """Build FAISS vector store from knowledge base and cache to disk.
@@ -94,6 +70,7 @@ class Utility:
         vector_store.save_local("database/vectordb")
         return vector_store
     
+    @traceable(name="helper : lead_cap_tool")
     @staticmethod
     def mock_lead_capture(name, email, platform):
         """Log captured lead information to console.
