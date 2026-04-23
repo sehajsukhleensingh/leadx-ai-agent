@@ -24,7 +24,7 @@ def show_banner():
     return banner
 
 @traceable(name="leadx agent flow")
-def call_bot(user_mssg , username):
+def call_bot(user_mssg :str , username : str) -> str:
     response = bot.invoke({"messages":[HumanMessage(content=user_mssg)]} , 
                           config={"configurable":{"thread_id":username}})
     return response["messages"][-1].content
