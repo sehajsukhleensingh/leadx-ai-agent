@@ -1,6 +1,7 @@
 # leadx — Social-to-Lead AI agent
 ![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)
 ![LangChain](https://img.shields.io/badge/LangChain-Enabled-green.svg)
+![LangSmith](https://img.shields.io/badge/LangSmith-Observability-blue)
 ![LangGraph](https://img.shields.io/badge/LangGraph-Enabled-green.svg)
 ![Gemini](https://img.shields.io/badge/Gemini-Powered-orange.svg)
 ![SQLite](https://img.shields.io/badge/SQLite-Stateful-lightgrey.svg)
@@ -74,6 +75,16 @@ def mock_lead_capture(name, email, platform):
     print(f"Lead captured successfully: {name}, {email}, {platform}")
 ```
 
+###  Observability with LangSmith (Optional added feature)
+
+This project integrates **LangSmith** for tracing and debugging LLM interactions.
+
+### What it provides
+- End-to-end execution tracing
+- Node-level visibility in LangGraph
+- Debugging of prompts and responses
+- Performance monitoring
+
 ---
 
 ##  How to Run Locally
@@ -120,7 +131,20 @@ HUGGINGFACEHUB_API_TOKEN=your_huggingface_api_key_here
 python3 -m main
 ```
 
-**7. Interact via terminal**
+**7. ⚠️ Optional Setup**
+
+LangSmith is **not required** to run this project.
+The system works fully without it.
+To enable tracing, add the following to your `.env`:
+
+```env
+LANGSMITH_TRACING=true
+LANGSMITH_ENDPOINT=https://api.smith.langchain.com
+LANGSMITH_API_KEY=your_langsmith_api_key
+LANGSMITH_PROJECT=leadx-agent
+```
+
+**8. Interact via terminal**
 *Example output:*
 > **You:** Hi 
 >
@@ -217,5 +241,5 @@ This project demonstrates how to build a real-world agentic AI system that under
 
 ---
 
-**Author**
+**Author :** 
 Sehaj Sukhleen Singh
