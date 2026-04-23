@@ -17,6 +17,8 @@ Built as part of the ServiceHive – Inflx assignment, this project goes beyond 
 *  **Lead qualification workflow**
 *  **Tool execution (mock lead capture)**
 
+**Demo video link** : ```https://youtu.be/ry9-JgeJ3YU```
+
 ---
 
 ##  System Architecture
