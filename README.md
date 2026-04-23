@@ -18,7 +18,8 @@ Built as part of the ServiceHive – Inflx assignment, this project goes beyond 
 *  **Tool execution (mock lead capture)**
 
 **Demo video link** : 
-```bash https://youtu.be/ry9-JgeJ3YU 
+```bash
+https://youtu.be/ry9-JgeJ3YU 
 ```
 
 ---
