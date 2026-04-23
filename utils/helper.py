@@ -12,8 +12,8 @@ load_dotenv()
 
 class Utility:
     
-    @traceable(name="helper : fetch_prompts")
     @staticmethod
+    @traceable(name="helper : fetch_prompts")
     def fetch_prompt(path: str):
         """Load prompt template from markdown file for LLM chain usage.
         
@@ -23,8 +23,8 @@ class Utility:
         with open(path, "r", encoding="utf-8") as file:
             return file.read()
 
-    @traceable(name="helper : flatten_json_kb")
     @staticmethod
+    @traceable(name="helper : flatten_json_kb")
     def flatten_autostream_json(data):
         """Transform knowledge base JSON into readable text for embedding.
         
@@ -43,8 +43,8 @@ class Utility:
 
         return "\n".join(text_parts)
 
-    @traceable(name="helper : vectordb_setup")
     @staticmethod
+    @traceable(name="helper : vectordb_setup")
     def create_vector_store():
         """Build FAISS vector store from knowledge base and cache to disk.
         
@@ -70,8 +70,8 @@ class Utility:
         vector_store.save_local("database/vectordb")
         return vector_store
     
-    @traceable(name="helper : lead_cap_tool")
     @staticmethod
+    @traceable(name="helper : lead_cap_tool")
     def mock_lead_capture(name, email, platform):
         """Log captured lead information to console.
         
