@@ -9,6 +9,8 @@ from langchain_core.prompts import PromptTemplate
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEndpointEmbeddings
 
+from langsmith import traceable
+
 from utils.helper import Utility
 from schema_models.lead_validator import Lead , IntentOutput
 
@@ -47,6 +49,7 @@ class leadx:
     collecting lead data, and validating information.
     """
 
+    @traceable(name="constructor to setup llm and embedder")
     def __init__(self):
         """Initialize the LLM and embedding models.
         
@@ -60,6 +63,7 @@ class leadx:
         self.llm = ChatGoogleGenerativeAI(model = "gemini-2.5-flash-lite" , 
                              temperature = 0.2)
 
+    @traceable(name="intent classifier node")
     def intent_classifer(self, state : BotState) -> Literal["GREETING","INQUIRY","HIGH_INTENT"]:
         """Classify user intent from the latest message.
         
@@ -86,6 +90,7 @@ class leadx:
             return {"messages":"GREETING"}
 
 
+    @traceable(name="intent router")
     def router(self, state : BotState) -> Literal["chat_node","rag_node","lead_collection_node"]:
         """Route to appropriate handler based on intent and lead collection state.
         
@@ -111,6 +116,7 @@ class leadx:
         else:
             print("error in router input")
 
+    @traceable(name="chat node")
     def chat_func(self, state : BotState) -> BotState:
         """Handle general conversation without knowledge base context.
         
@@ -125,6 +131,7 @@ class leadx:
         return {"messages":[output]}
 
 
+    @traceable(name="rag node")
     def rag_func(self, state : BotState) -> BotState:
         """Retrieve relevant knowledge and generate contextual response.
         
@@ -160,6 +167,7 @@ class leadx:
         return {"messages":[output],"context":contextual_data}
 
 
+    @traceable(name="lead collection node")
     def lead_collection_func(self, state : BotState) -> BotState:
         """Progressively collect lead information through multi-turn conversation.
         
@@ -220,6 +228,7 @@ class leadx:
             return "validation_node"
         return "__end__"
     
+    @traceable(name="data validator name")
     def validate_data(self, state : BotState) -> BotState:
         """Validate lead data and handle validation errors.
         
@@ -263,7 +272,8 @@ class leadx:
                     "messages": [AIMessage(content="Invalid name. Please enter your name again.")],
                     "valid_data": False
                 }
-            
+
+    @traceable(name="tool node")        
     def tool_node(self, state: BotState) ->BotState:
         """Save validated lead data to storage.
         
