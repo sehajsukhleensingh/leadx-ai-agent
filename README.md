@@ -4,6 +4,7 @@
 ![LangSmith](https://img.shields.io/badge/LangSmith-Observability-blue)
 ![LangGraph](https://img.shields.io/badge/LangGraph-Enabled-green.svg)
 ![Gemini](https://img.shields.io/badge/Gemini-Powered-orange.svg)
+![FAISS](https://img.shields.io/badge/FAISS-VectorDB-blueviolet)
 ![SQLite](https://img.shields.io/badge/SQLite-Stateful-lightgrey.svg)
 
 An agentic conversational AI system that converts user conversations into qualified business leads for a fictional SaaS product, AutoStream. 
