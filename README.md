@@ -7,9 +7,7 @@
 ![FAISS](https://img.shields.io/badge/FAISS-VectorDB-blueviolet)
 ![SQLite](https://img.shields.io/badge/SQLite-Stateful-lightgrey.svg)
 
-An agentic conversational AI system that converts user conversations into qualified business leads for a fictional SaaS product, AutoStream. 
-
-Built as part of the ServiceHive – Inflx assignment, this project goes beyond a basic chatbot by integrating:
+An agentic conversational AI system that converts user conversations into qualified business leads.
 
 *  **Intent-aware routing**
 *  **Retrieval-Augmented Generation (RAG)**
